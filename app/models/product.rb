@@ -8,4 +8,7 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :quantity, presence: true
   validates :category, presence: true
+  validates :image, presence: true # need all 3 to make sure the image is not nil
+  validates_integrity_of :image # must be an image
+  validates_processing_of :image # must be processed
 end

@@ -11,4 +11,8 @@ class Product < ApplicationRecord
   validates :image, presence: true # need all 3 to make sure the image is not nil
   validates_integrity_of :image # must be an image
   validates_processing_of :image # must be processed
+
+  def available?
+    self.quantity > 0
+  end
 end

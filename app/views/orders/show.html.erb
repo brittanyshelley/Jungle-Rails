@@ -4,31 +4,28 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
+  <h1>Order Details</h1>
 
-<h1>Order Details</h1>
-
-<h2>Line Items</h2>
-    <div class="panel panel-default items">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th colspan="2">Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @order.line_items.each do |line_item| %>
+  <h2>Line Items</h2>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |line_item| %>
           <%= render partial: 'line_item', locals: { line_item: line_item } %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<h3>Total Amount: <%= humanized_money_with_symbol @order.total %></h3>
-<p>Email: <%= @order.email %>
-
-
+  <h3>Total Amount: <%= humanized_money_with_symbol @order.total %></h3>
+  <p>Email: <%= @order.email %>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>

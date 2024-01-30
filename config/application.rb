@@ -12,7 +12,13 @@ module New
     config.load_defaults 6.1
 
     # Configuration for the application, engines, and railties goes here.
-    #
+    #config.admin_username = ENV['ADMIN_USERNAME']
+    config.admin_username = ENV['ADMIN_USERNAME']
+    config.admin_password = ENV['ADMIN_PASSWORD']
+
+    config.middleware.use ::Rack::Auth::Basic do |username, password|
+      username == config.admin_username && password == config.admin_password
+    end
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

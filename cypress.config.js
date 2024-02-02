@@ -14,3 +14,4 @@ module.exports = defineConfig({
   videosFolder: "tmp/cypress_videos",
   trashAssetsBeforeRuns: false
 })
+
